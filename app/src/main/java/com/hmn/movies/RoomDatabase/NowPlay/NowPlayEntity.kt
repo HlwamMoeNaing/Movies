@@ -1,0 +1,21 @@
+package com.hmn.movies.RoomDatabase.NowPlay
+
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+import java.io.Serializable
+
+@Entity
+class NowPlayEntity:Serializable {
+    @PrimaryKey(autoGenerate = true)
+    var id: Int = 0
+
+    @ColumnInfo(name = "tittle")
+    var tittle: String? = null
+
+    @ColumnInfo(name = "release_date")
+    var release_date: String? = null
+
+    @ColumnInfo(name = "poster_path")
+    var poster_path: String? = null
+}
