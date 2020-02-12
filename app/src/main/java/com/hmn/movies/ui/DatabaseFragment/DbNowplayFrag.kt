@@ -8,12 +8,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.hmn.movies.Adapter.RoomAdapter.RnowPlayAdapter
 
 import com.hmn.movies.R
-import com.hmn.movies.RoomDatabase.NowPlay.NowPlayClient
-import com.hmn.movies.RoomDatabase.NowPlay.NowPlayEntity
+import com.hmn.movies.RoomDatabase.Database.DemoClient
+
+import com.hmn.movies.RoomDatabase.Entity.NowPlayEntity
 import kotlinx.android.synthetic.main.fragment_db_nowplay.*
 
 /**
@@ -38,7 +38,7 @@ class DbNowplayFrag : Fragment() {
     private fun getNowPlay(){
         class GetNowPlay:AsyncTask<Void,Void,List<NowPlayEntity>>(){
             override fun doInBackground(vararg p0: Void?): List<NowPlayEntity> {
-                return NowPlayClient.getNInstance(activity!!).nowplayDatabase.nowplayDao().nowplay
+                return DemoClient.getDemoInstance(activity!!).demoDb.demoDao().demoNowplay
             }
 
             override fun onPostExecute(result: List<NowPlayEntity>?) {
@@ -53,7 +53,4 @@ class DbNowplayFrag : Fragment() {
         val gnp = GetNowPlay()
         gnp.execute()
     }
-
-
-
 }

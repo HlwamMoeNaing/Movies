@@ -8,7 +8,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.hmn.movies.R
-import com.hmn.movies.RoomDatabase.Popular.MoviesEntity
+import com.hmn.movies.RoomDatabase.Entity.MoviesEntity
 import com.squareup.picasso.Picasso
 
 class RoomAdapter(val ctx:Context,val list: List<MoviesEntity>):RecyclerView.Adapter<RecyclerView.ViewHolder>() {

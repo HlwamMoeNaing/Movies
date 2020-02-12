@@ -1,4 +1,4 @@
-package com.hmn.movies.RoomDatabase.Popular
+package com.hmn.movies.RoomDatabase.Entity
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

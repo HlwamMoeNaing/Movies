@@ -11,8 +11,9 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.hmn.movies.Adapter.RoomAdapter.UpcomingAdapter
 
 import com.hmn.movies.R
-import com.hmn.movies.RoomDatabase.Upcoming.UpcomingClient
-import com.hmn.movies.RoomDatabase.Upcoming.UpcomingEntity
+import com.hmn.movies.RoomDatabase.Database.DemoClient
+
+import com.hmn.movies.RoomDatabase.Entity.UpcomingEntity
 import kotlinx.android.synthetic.main.fragment_db_upcoming.*
 
 /**
@@ -34,21 +35,22 @@ class DbUpcomingFrag : Fragment() {
     }
 
 
-    private fun getUpcoming(){
-        class GetUpcoming:AsyncTask<Void,Void,List<UpcomingEntity>>(){
+    private fun getUpcoming() {
+        class GetUpcoming : AsyncTask<Void, Void, List<UpcomingEntity>>() {
             override fun doInBackground(vararg p0: Void?): List<UpcomingEntity> {
-                return UpcomingClient.getUpInstance(activity!!).upcomingDatabase.upcomingDao().upcoming
+                return DemoClient.getDemoInstance(activity!!).demoDb.demoDao().demoUpcoming
             }
 
             override fun onPostExecute(result: List<UpcomingEntity>?) {
                 super.onPostExecute(result)
-                val adp = UpcomingAdapter(activity!!,result!!)
-                val Gmgr = GridLayoutManager(activity!!,3)
+                val adp = UpcomingAdapter(activity!!, result!!)
+                val Gmgr = GridLayoutManager(activity!!, 3)
                 rv_db_upcoming.adapter = adp
                 rv_db_upcoming.layoutManager = Gmgr
             }
 
         }
+
         val gp = GetUpcoming()
         gp.execute()
     }

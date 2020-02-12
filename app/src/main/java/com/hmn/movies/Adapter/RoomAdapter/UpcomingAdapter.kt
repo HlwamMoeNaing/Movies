@@ -8,7 +8,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.hmn.movies.R
-import com.hmn.movies.RoomDatabase.Upcoming.UpcomingEntity
+import com.hmn.movies.RoomDatabase.Entity.UpcomingEntity
 import com.squareup.picasso.Picasso
 
 class UpcomingAdapter(val ctx: Context, val list: List<UpcomingEntity>) :

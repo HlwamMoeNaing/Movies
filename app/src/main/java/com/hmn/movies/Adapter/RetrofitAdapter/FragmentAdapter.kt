@@ -14,11 +14,11 @@ class FragmentAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
             PopularFragment()
         }else if( position == 1){
             NowShowingFragment()
-        }else if (position == 2){
+        }else (if (position == 2){
             TopRateFragment()
         }else{
             UpcomingFragment()
-        }
+        }) as Fragment
     }
 
     override fun getCount(): Int {

@@ -4,9 +4,24 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.RetrofitFrag.UpcomingFragment">
+<SearchView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/upcoming_search">
+    <requestFocus/>
+</SearchView>
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
+        android:layout_below="@id/upcoming_search"
         android:layout_height="wrap_content"
         android:id="@+id/rv_upcoming"/>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:src="@drawable/ic_arrow"
+        android:id="@+id/fb_upcoming_dowm"
+        android:backgroundTint="#f3e5f5"/>
 </RelativeLayout>

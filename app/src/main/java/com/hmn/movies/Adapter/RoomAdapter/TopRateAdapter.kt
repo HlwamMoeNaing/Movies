@@ -8,7 +8,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.hmn.movies.R
-import com.hmn.movies.RoomDatabase.TopRate.TopRateEntity
+import com.hmn.movies.RoomDatabase.Entity.TopRateEntity
 import com.squareup.picasso.Picasso
 
 class TopRateAdapter(val ctx: Context, val list: List<TopRateEntity>) :

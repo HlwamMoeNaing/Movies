@@ -8,8 +8,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.hmn.movies.R
-import com.hmn.movies.RoomDatabase.NowPlay.NowPlayEntity
-import com.hmn.movies.RoomDatabase.Popular.MoviesEntity
+import com.hmn.movies.RoomDatabase.Entity.NowPlayEntity
 import com.squareup.picasso.Picasso
 
 class RnowPlayAdapter(val ctx:Context,val list: List<NowPlayEntity>):RecyclerView.Adapter<RecyclerView.ViewHolder>() {

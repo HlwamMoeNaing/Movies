@@ -1,22 +1,38 @@
 package com.hmn.movies.Activity
 
+import android.app.SearchManager
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.view.Menu
 import android.view.MenuItem
+import android.widget.ArrayAdapter
+import android.widget.SearchView
+import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
+import androidx.core.view.MenuItemCompat
 import com.google.android.material.navigation.NavigationView
 import com.hmn.movies.Adapter.RetrofitAdapter.FragmentAdapter
+import com.hmn.movies.Adapter.RetrofitAdapter.RecyclerAdapter
+import com.hmn.movies.Model.MovieDetails
+import com.hmn.movies.Model.Movies_data
+import com.hmn.movies.Network.Retro_service
+import com.hmn.movies.Network.RetrofitHelper
+import com.hmn.movies.Network.RetrofitHelper.Companion.getRetrofit
 import com.hmn.movies.R
+import com.hmn.movies.ui.RetrofitFrag.PopularFragment
+import com.squareup.picasso.Picasso
+import kotlinx.android.synthetic.main.activity_detail.*
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
-class MainActivity : AppCompatActivity() , NavigationView.OnNavigationItemSelectedListener {
-//    lateinit var dbPopularFrag: DbPopularFrag
-//    lateinit var dbNowplayFrag: DbNowplayFrag
-//    lateinit var dbUpcomingFrag: DbUpcomingFrag
-//    lateinit var dbTopRateFrag: DbTopRateFrag
+class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,10 +47,6 @@ class MainActivity : AppCompatActivity() , NavigationView.OnNavigationItemSelect
 
         tabs.setupWithViewPager(view_pager)
 
-
-
-
-
         setSupportActionBar(toolbar)
         val actionBar = supportActionBar
         actionBar?.title = "Mingalar Movies"
@@ -48,46 +60,26 @@ class MainActivity : AppCompatActivity() , NavigationView.OnNavigationItemSelect
         drawerToggle.syncState()
         nav_view.setNavigationItemSelectedListener(this@MainActivity)
 
-//        dbPopularFrag = DbPopularFrag()
-//        supportFragmentManager.beginTransaction()
-//            .replace(R.id.frame_layout, dbPopularFrag)
-//            .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
-//            .commit()
     }
+
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.popular -> {
-                startActivity(Intent(this,RoomActivity::class.java))
-//                dbPopularFrag = DbPopularFrag()
-//                supportFragmentManager.beginTransaction()
-//                    .replace(R.id.frag_view, dbPopularFrag)
-//                    .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
-//                    .commit()
+                startActivity(Intent(this, RoomActivity::class.java))
+
             }
             R.id.now_showing -> {
-                startActivity(Intent(this,RoomActivity::class.java))
-//                dbNowplayFrag = DbNowplayFrag()
-//                supportFragmentManager.beginTransaction()
-//                    .replace(R.id.frag_view, dbNowplayFrag)
-//                    .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
-//                    .commit()
+                startActivity(Intent(this, RoomActivity::class.java))
+
             }
             R.id.top_rated -> {
-                startActivity(Intent(this,RoomActivity::class.java))
-//                dbTopRateFrag = DbTopRateFrag()
-//                supportFragmentManager.beginTransaction()
-//                    .replace(R.id.frag_view, dbTopRateFrag)
-//                    .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
-//                    .commit()
+                startActivity(Intent(this, RoomActivity::class.java))
+
             }
             R.id.upcoming -> {
-                startActivity(Intent(this,RoomActivity::class.java))
-//                dbUpcomingFrag = DbUpcomingFrag()
-//                supportFragmentManager.beginTransaction()
-//                    .replace(R.id.frag_view, dbUpcomingFrag)
-//                    .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
-//                    .commit()
+                startActivity(Intent(this, RoomActivity::class.java))
+
             }
 
 

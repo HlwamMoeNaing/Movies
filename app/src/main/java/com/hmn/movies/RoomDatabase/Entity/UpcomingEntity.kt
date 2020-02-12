@@ -1,11 +1,11 @@
-package com.hmn.movies.RoomDatabase.TopRate
+package com.hmn.movies.RoomDatabase.Entity
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity
-class TopRateEntity {
+class UpcomingEntity {
     @PrimaryKey(autoGenerate = true)
     var id: Int = 0
 

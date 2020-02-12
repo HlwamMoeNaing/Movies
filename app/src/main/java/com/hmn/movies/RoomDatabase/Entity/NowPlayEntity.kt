@@ -1,4 +1,4 @@
-package com.hmn.movies.RoomDatabase.NowPlay
+package com.hmn.movies.RoomDatabase.Entity
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

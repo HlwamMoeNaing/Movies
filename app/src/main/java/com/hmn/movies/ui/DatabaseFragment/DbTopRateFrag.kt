@@ -11,8 +11,9 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.hmn.movies.Adapter.RoomAdapter.TopRateAdapter
 
 import com.hmn.movies.R
-import com.hmn.movies.RoomDatabase.TopRate.TopRateClient
-import com.hmn.movies.RoomDatabase.TopRate.TopRateEntity
+import com.hmn.movies.RoomDatabase.Database.DemoClient
+
+import com.hmn.movies.RoomDatabase.Entity.TopRateEntity
 import kotlinx.android.synthetic.main.fragment_db_top_rate.*
 
 /**
@@ -37,7 +38,7 @@ class DbTopRateFrag : Fragment() {
     private fun getTopRate(){
         class GetTopRate:AsyncTask<Void,Void,List<TopRateEntity>>(){
             override fun doInBackground(vararg p0: Void?): List<TopRateEntity> {
-                return TopRateClient.getTInstance(activity!!).toprateDatabase.topRateDao().topRate
+                return DemoClient.getDemoInstance(activity!!).demoDb.demoDao().demoTopRate
             }
 
             override fun onPostExecute(result: List<TopRateEntity>?) {
